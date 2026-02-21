@@ -11,17 +11,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create cache folder
-        run: |
-          mkdir -p test-cache
-          echo "hello" > test-cache/file.txt
-
       - name: Cache dependencies
         id: cache_step
         uses: actions/cache@v4
         with:
           path: test-cache
           key: cache-64ec23b
+
+      - name: Create cache folder
+        run: |
+          mkdir -p test-cache
+          echo "hello world" > test-cache/file.txt
 
       - name: prime-cache-64ec23b
         run: |
